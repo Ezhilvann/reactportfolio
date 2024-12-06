@@ -28,7 +28,7 @@ function Skills() {
   return (
     <div className={`${dark?"bg-black text-white":"bg-white text-black"}`}>
         <div>
-            <img src={dark?darkpic3:pic3} className="h-56 w-52"/>
+            <img src={dark?darkpic3:pic3} alt="dargonballpic" className="h-56 w-52"/>
             <p className="text-center text-2xl font-semibold text-[rgb(218,165,32)]">Skills</p>
         </div>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6">
