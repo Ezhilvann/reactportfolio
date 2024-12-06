@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+.flip-card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden; 
+    background-color: #f8f9fa; 
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    border: 4px solid black;
+    border-radius: 20px; 
+    box-sizing: border-box; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(209, 206, 8);
+    background-color: #f8f9fa; 
+    border-radius: 20px; 
+}
+
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+@keyframes rotate360 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .animate-rotate {
+    animation: rotate360 5s linear infinite; 
   }
-  to {
-    transform: rotate(360deg);
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
-}
+  
+  .animate-marquee {
+    display: flex;
+    animation: marquee 40s linear infinite;
+  }
+  
+  .achieve-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
